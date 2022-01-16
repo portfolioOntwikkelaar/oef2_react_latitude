@@ -1,0 +1,19 @@
+.Northern{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #093028, #237a57);
+}
+.Southern{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #43c6ac, #191654);
+}
+.Southern{
+  display: flex;
+  color: aliceblue;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #43c6ac, #191654);
+}
