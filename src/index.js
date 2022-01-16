@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import HemisphereDisplay from './HemisphereDisplay'
 // import './index.css';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
@@ -28,7 +29,7 @@ class App extends React.Component {
         return <div>{this.state.errorMessage}</div>
       }
       if(!this.state.errorMessage && this.state.latitude) {
-        return <div>{this.state.latitude}</div>
+        return <div><HemisphereDisplay /></div>
       }
       else {
         return <div>..Loading..</div>
