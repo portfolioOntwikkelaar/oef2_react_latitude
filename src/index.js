@@ -6,11 +6,10 @@ import ReactDOM from 'react-dom';
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
+  
+  state = { latitude: null, errorMessage: ''}
 
-    this.state = { latitude: null, errorMessage: ''  }
-    // longitude: null
+  componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
         this.setState({latitude: position.coords.latitude})
@@ -20,14 +19,21 @@ class App extends React.Component {
     this.setState({errorMessage: error.message})
   }  );
   }
+  // componentDidUpdate(){
+  //   console.log('componentDidUpdate')
+  // }
   render() {
-    return (
-      <div>
-        {this.state.latitude}
-        {this.state.errorMessage}
-        {/* You are in the nothern hemisphere */}
-      </div>
-    )
+    
+      if(this.state.errorMessage && !this.state.latitude) {
+        return <div>{this.state.errorMessage}</div>
+      }
+      if(!this.state.errorMessage && this.state.latitude) {
+        return <div>{this.state.latitude}</div>
+      }
+      else {
+        return <div>..Loading..</div>
+      }
+    
   }
 }
 ReactDOM.render(
