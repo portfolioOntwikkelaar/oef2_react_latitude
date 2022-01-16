@@ -3,17 +3,26 @@ import ReactDOM from 'react-dom';
 // import './index.css';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
-const App = () => {
 
-  window.navigator.geolocation.getCurrentPosition(
-    (position) => console.log(position),
-    (error) =>
-console.log(error)  );
-  return (
-    <div>
-      latitude: 
-    </div>
-  )
+
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { latitude: 25 }
+    window.navigator.geolocation.getCurrentPosition(
+      (position) => console.log(position),
+      (error) =>
+  console.log(error)  );
+  }
+  render() {
+    return (
+      <div>
+        {this.state.latitude}
+        {/* You are in the nothern hemisphere */}
+      </div>
+    )
+  }
 }
 ReactDOM.render(
   
