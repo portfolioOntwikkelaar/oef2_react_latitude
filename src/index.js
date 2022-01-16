@@ -9,16 +9,22 @@ class App extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { latitude: 25 }
+    this.state = { latitude: null, errorMessage: ''  }
+    // longitude: null
     window.navigator.geolocation.getCurrentPosition(
-      (position) => console.log(position),
+      (position) => {
+        this.setState({latitude: position.coords.latitude})
+      },
       (error) =>
-  console.log(error)  );
+  {
+    this.setState({errorMessage: error.message})
+  }  );
   }
   render() {
     return (
       <div>
         {this.state.latitude}
+        {this.state.errorMessage}
         {/* You are in the nothern hemisphere */}
       </div>
     )
